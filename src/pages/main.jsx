@@ -18,7 +18,7 @@ export default function MainWrapper({ children }) {
                 <SidebarJSX />
                 <Layout style={{ backgroundColor: 'inherit' }}>
                     <HeaderJSX />
-                    <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+                    <Content style={{ overflow: 'initial', padding: '6px 10px 350px 10px' }}>
                         {children}
                     </Content>
                 </Layout>

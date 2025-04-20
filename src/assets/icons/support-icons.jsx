@@ -24,4 +24,11 @@ export function AlertIcon({ color = 'default' }) {
         </svg>
     )
 }
+export function ReloadIcon({ color = 'default' }) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M11.8055 1V2.87932C11.8055 3.05563 11.5851 3.13545 11.4722 3C10.3736 1.7725 8.777 1 7 1C3.68629 1 1 3.68629 1 7C1 10.3137 3.68629 13 7 13C10.3137 13 13 10.3137 13 7" stroke={color !== 'default' ? COLORS[color] : "#929497"} stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    )
+}
 
