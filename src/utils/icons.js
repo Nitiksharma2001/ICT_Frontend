@@ -79,5 +79,3 @@ export const sidebarKeys = [
   'parameter-input',
   'what-if-analysis',
 ]
-
-console.log(iconsDetails.filter(({ key }) => sidebarKeys.includes(key)))

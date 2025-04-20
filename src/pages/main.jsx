@@ -14,7 +14,7 @@ export default function MainWrapper({ children, title }) {
         },
       }}
     >
-      <Layout style={{ backgroundColor: 'white', height: '100vh' }} hasSider>
+      <Layout style={{ backgroundColor: 'white' }} hasSider>
         <SidebarJSX />
         <Layout style={{ backgroundColor: 'inherit' }}>
           <HeaderJSX title={title} />
