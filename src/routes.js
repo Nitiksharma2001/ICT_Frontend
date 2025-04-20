@@ -1,6 +1,8 @@
-import { createBrowserRouter } from "react-router-dom";
-import ParameterInput from "./pages/parameter-input/parameter-input";
+import { createBrowserRouter } from 'react-router-dom'
+import { iconsWithNavigation } from './utils/constants'
 
-export const router = createBrowserRouter([
-    { path: "/parameter-input", Component: ParameterInput },
-]);
+export const router = createBrowserRouter(
+  iconsWithNavigation.map(({ route, component }) => {
+    return { path: route, Component: component }
+  })
+)
