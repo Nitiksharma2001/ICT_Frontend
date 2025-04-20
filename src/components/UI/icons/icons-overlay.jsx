@@ -1,17 +1,15 @@
 import { Link, useLocation } from 'react-router-dom'
 
-export default function IconOverlay({ item, hovered = false }) {
+export default function IconOverlay({ item, type = 'default' }) {
   const { Icon, title, route } = item
-
-  const currentRoute = useLocation()['pathname']
-  const type = currentRoute === route ? 'clicked' : hovered && 'hovered'
 
   const iconStyle = {
     height: '50px',
+    padding: '13px',
+    borderRadius: '15px',
+
     cursor: 'pointer',
     textTransform: 'capitalize',
-    borderRadius: '15px',
-    padding: '13px',
 
     display: 'flex',
     justifyContent: 'center',
@@ -48,6 +46,7 @@ export default function IconOverlay({ item, hovered = false }) {
       </Link>
     )
   }
+
   return (
     <Link
       to={route}

@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { iconsWithNavigation } from './utils/constants'
+import { iconsDetails } from './utils/icons'
 
 export const router = createBrowserRouter(
-  iconsWithNavigation.map(({ route, component }) => {
+  iconsDetails.map(({ route, component }) => {
     return { path: route, Component: component }
   })
 )

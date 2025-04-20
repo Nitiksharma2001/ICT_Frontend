@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { TredenceIcon } from '../../assets/icons/support-icons'
 import { Layout } from 'antd'
-import { iconsWithNavigation } from '../../utils/constants'
+import { iconsDetails, sidebarKeys } from '../../utils/icons'
 import IconOverlay from '../UI/icons/icons-overlay'
 
 const { Sider } = Layout
@@ -17,8 +17,8 @@ const siderStyle = {
   backgroundColor: '#F8F9FA',
 }
 const logoStyle = {
-  width: '46px',
-  height: '44px',
+  width: '50px',
+  height: '50px',
   radius: '10px',
   display: 'flex',
   borderRadius: '10px',
@@ -26,6 +26,7 @@ const logoStyle = {
   alignItems: 'center',
   backgroundColor: 'white',
   cursor: 'pointer',
+  position: 'relative',
 }
 export default function SidebarJSX() {
   const [hoverKey, setHoverKey] = useState(null)
@@ -55,18 +56,16 @@ export default function SidebarJSX() {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            height: '450px',
-            width: '50px',
             position: 'relative',
           }}
         >
-          {iconsWithNavigation
-            .filter(({ key }) => key !== 'avatar-icon' && key !== 'help-icon')
-            .map((icon, index) => (
+          {iconsDetails
+            .filter(({ key }) => sidebarKeys.includes(key))
+            .map((icon) => (
               <div key={icon.key} onMouseEnter={() => setHoverKey(icon.key)} onMouseLeave={() => setHoverKey(null)}>
                 {hoverKey === icon.key && (
                   <div style={{ position: 'absolute', left: 0 }}>
-                    <IconOverlay item={icon} hovered={true} />
+                    <IconOverlay item={icon} type='hovered' />
                   </div>
                 )}
                 <IconOverlay item={icon} />
@@ -75,10 +74,15 @@ export default function SidebarJSX() {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           <div style={logoStyle} onMouseEnter={() => setHoverKey('help-icon')} onMouseLeave={() => setHoverKey(null)}>
-            <IconOverlay item={iconsWithNavigation.find((icon) => icon.key === 'help-icon')} />
+            {hoverKey === 'help-icon' && (
+              <div style={{ position: 'absolute', left: 0 }}>
+                <IconOverlay item={iconsDetails.find((icon) => icon.key === 'help-icon')} type='hovered' />
+              </div>
+            )}
+            <IconOverlay item={iconsDetails.find((icon) => icon.key === 'help-icon')} />
           </div>
           <div style={logoStyle}>
-            <IconOverlay item={iconsWithNavigation.find((icon) => icon.key === 'avatar-icon')} />
+            <IconOverlay item={iconsDetails.find((icon) => icon.key === 'avatar-icon')} />
           </div>
         </div>
       </div>
